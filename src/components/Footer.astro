@@ -1,0 +1,25 @@
+---
+import { siteData } from '../data/site';
+
+const { brandName, navItems, footerText, contactEmail } = siteData;
+---
+
+<footer class="border-t border-white/10 py-10">
+  <div class="shell flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between">
+    <div class="space-y-2">
+      <p class="text-lg font-semibold text-white">{brandName}</p>
+      <p class="text-sm text-slate-400">{footerText}</p>
+      <a href={`mailto:${contactEmail}`} class="text-sm text-slate-300 hover:text-white">
+        {contactEmail}
+      </a>
+    </div>
+
+    <div class="flex flex-wrap gap-4 text-sm text-slate-400">
+      {navItems.map((item) => (
+        <a href={item.href} class="hover:text-white">
+          {item.label}
+        </a>
+      ))}
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,71 @@
+---
+import { siteData } from '../data/site';
+import SectionHeading from './ui/SectionHeading.astro';
+import Icon from './ui/Icon.astro';
+import ButtonLink from './ui/ButtonLink.astro';
+
+const { pricing } = siteData;
+---
+
+<section id="planes" class="section">
+  <div class="shell">
+    <div class="space-y-12">
+      <div class="reveal" data-reveal>
+        <SectionHeading
+          eyebrow="Planes"
+          title="Elige una base clara y escala segun el canal que quieres automatizar"
+          description="Los planes estan estructurados para empezar rapido y crecer con mas capacidad, voz y personalizacion cuando el negocio lo necesite."
+          align="center"
+        />
+      </div>
+
+      <div class="grid gap-6 xl:grid-cols-3">
+        {pricing.plans.map((plan) => (
+          <article
+            class:list={[
+              'reveal rounded-[32px] p-7',
+              plan.highlighted
+                ? 'panel-strong relative border-accent/30 bg-gradient-to-b from-white/[0.08] to-white/[0.03]'
+                : 'panel'
+            ]}
+            data-reveal
+          >
+            {plan.highlighted && (
+              <span class="absolute right-6 top-6 rounded-full bg-accent px-3 py-1 text-xs font-semibold uppercase tracking-[0.18em] text-slate-950">
+                Recomendado
+              </span>
+            )}
+            <div class="space-y-4">
+              <div>
+                <p class="text-sm uppercase tracking-[0.22em] text-slate-400">{plan.name}</p>
+                <div class="mt-4 flex items-end gap-1">
+                  <span class="text-5xl font-semibold text-white">${plan.price}</span>
+                  <span class="pb-1 text-sm text-slate-400">/mes</span>
+                </div>
+              </div>
+              <p class="text-sm leading-7 text-slate-300">{plan.description}</p>
+              <ul class="space-y-3">
+                {plan.features.map((feature) => (
+                  <li class="flex items-start gap-3 text-sm text-slate-200">
+                    <span class="mt-0.5 inline-flex rounded-full border border-accent/20 bg-accent/10 p-1 text-accent">
+                      <Icon name="check" />
+                    </span>
+                    <span>{feature}</span>
+                  </li>
+                ))}
+              </ul>
+              <ButtonLink
+                href={plan.ctaHref}
+                label={plan.ctaLabel}
+                variant={plan.highlighted ? 'primary' : 'secondary'}
+                className="mt-6 w-full"
+              />
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <p class="text-center text-sm text-slate-400 reveal" data-reveal>{pricing.note}</p>
+    </div>
+  </div>
+</section>

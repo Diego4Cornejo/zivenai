@@ -1,0 +1,17 @@
+---
+type Props = {
+  eyebrow: string;
+  title: string;
+  description: string;
+  align?: 'left' | 'center';
+};
+
+const { eyebrow, title, description, align = 'left' } = Astro.props as Props;
+const centered = align === 'center';
+---
+
+<div class:list={['space-y-5', centered && 'mx-auto text-center']}>
+  <span class="eyebrow">{eyebrow}</span>
+  <h2 class:list={['section-title', centered && 'mx-auto']}>{title}</h2>
+  <p class:list={['section-copy', centered && 'mx-auto']}>{description}</p>
+</div>

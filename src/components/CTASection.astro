@@ -1,0 +1,30 @@
+---
+import { siteData } from '../data/site';
+import ButtonLink from './ui/ButtonLink.astro';
+
+const { ctaLinks } = siteData;
+---
+
+<section id="contacto" class="section pb-16">
+  <div class="shell">
+    <div class="panel-strong reveal relative overflow-hidden rounded-[36px] px-6 py-10 sm:px-10 sm:py-14" data-reveal>
+      <div class="glow-orb -left-8 top-10 h-32 w-32 bg-accent/20"></div>
+      <div class="glow-orb right-0 top-0 h-40 w-40 bg-sky/20"></div>
+      <div class="relative flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
+        <div class="max-w-3xl space-y-5">
+          <span class="eyebrow">Cierre</span>
+          <h2 class="section-title">
+            Convierte WhatsApp y las llamadas en tus mejores canales de atencion y ventas
+          </h2>
+          <p class="section-copy">
+            ZivenAI te ayuda a responder mejor, captar mas oportunidades y ofrecer atencion automatizada con imagen profesional en texto y voz.
+          </p>
+        </div>
+        <div class="flex flex-col gap-4 sm:flex-row">
+          <ButtonLink href={ctaLinks.contact} label="Solicitar informacion" icon="arrow" />
+          <ButtonLink href={ctaLinks.primary} label="Hablar con ZivenAI" variant="secondary" />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,35 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import UseCases from '../components/UseCases.astro';
+import Features from '../components/Features.astro';
+import DemoSection from '../components/DemoSection.astro';
+import Pricing from '../components/Pricing.astro';
+import Benefits from '../components/Benefits.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import FAQ from '../components/FAQ.astro';
+import CTASection from '../components/CTASection.astro';
+import Footer from '../components/Footer.astro';
+import { siteData } from '../data/site';
+
+const metaTitle = `${siteData.brandName} | Automatizacion inteligente para negocios`;
+const metaDescription =
+  'Landing page de ZivenAI para automatizar conversaciones, captar leads y mejorar la atencion por WhatsApp y voz.';
+---
+
+<MainLayout title={metaTitle} description={metaDescription}>
+  <Navbar />
+  <main>
+    <Hero />
+    <UseCases />
+    <Features />
+    <DemoSection />
+    <Pricing />
+    <Benefits />
+    <HowItWorks />
+    <FAQ />
+    <CTASection />
+  </main>
+  <Footer />
+</MainLayout>

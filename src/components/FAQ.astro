@@ -1,0 +1,35 @@
+---
+import { siteData } from '../data/site';
+import SectionHeading from './ui/SectionHeading.astro';
+import Icon from './ui/Icon.astro';
+
+const { faqs } = siteData;
+---
+
+<section id="faq" class="section">
+  <div class="shell">
+    <div class="grid gap-10 lg:grid-cols-[0.85fr_1.15fr]">
+      <div class="reveal" data-reveal>
+        <SectionHeading
+          eyebrow="FAQ"
+          title="Preguntas comunes antes de implementar ZivenAI"
+          description="Una seccion simple, accesible y facil de actualizar para resolver objeciones frecuentes."
+        />
+      </div>
+
+      <div class="space-y-4">
+        {faqs.map((item) => (
+          <details class="panel reveal group rounded-[26px] px-6 py-5" data-reveal>
+            <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
+              <span class="text-base font-semibold text-white">{item.question}</span>
+              <span class="rounded-full border border-white/10 bg-white/5 p-2 text-slate-300 group-open:rotate-180">
+                <Icon name="chevron" />
+              </span>
+            </summary>
+            <p class="pt-4 text-sm leading-7 text-slate-300">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

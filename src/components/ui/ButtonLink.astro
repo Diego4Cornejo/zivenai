@@ -1,0 +1,24 @@
+---
+import Icon from './Icon.astro';
+
+type Props = {
+  href: string;
+  label: string;
+  variant?: 'primary' | 'secondary';
+  icon?: string;
+  className?: string;
+};
+
+const {
+  href,
+  label,
+  variant = 'primary',
+  icon,
+  className = ''
+} = Astro.props as Props;
+---
+
+<a href={href} class:list={[variant === 'primary' ? 'button-primary' : 'button-secondary', className]}>
+  <span>{label}</span>
+  {icon && <Icon name={icon} className="text-current" />}
+</a>

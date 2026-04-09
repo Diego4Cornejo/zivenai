@@ -1,0 +1,12 @@
+---
+import { getIcon } from '../../lib/icons';
+
+type Props = {
+  name: string;
+  className?: string;
+};
+
+const { name, className = '' } = Astro.props as Props;
+---
+
+<span class:list={['inline-flex shrink-0', className]} set:html={getIcon(name)} />
