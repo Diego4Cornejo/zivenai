@@ -12,8 +12,8 @@ export default {
         blush: '#f3a0ff'
       },
       boxShadow: {
-        glow: '0 0 0 1px rgba(255,255,255,0.08), 0 18px 80px rgba(60, 115, 255, 0.18)',
-        soft: '0 18px 60px rgba(7, 11, 20, 0.45)'
+        glow: '0 0 0 1px rgba(255,255,255,0.08), 0 20px 64px rgba(37, 99, 235, 0.14)',
+        soft: '0 20px 56px rgba(7, 11, 20, 0.38)'
       },
       backgroundImage: {
         grid: 'linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px)'

@@ -10,24 +10,26 @@ type Props = {
   subtitle: string;
   messages: Message[];
   compact?: boolean;
+  statusLabel?: string;
 };
 
-const { title, subtitle, messages, compact = false } = Astro.props as Props;
+const { title, subtitle, messages, compact = false, statusLabel } = Astro.props as Props;
 ---
 
 <div class:list={['panel-strong overflow-hidden', compact ? 'max-w-md' : 'max-w-xl', 'relative']}>
-  <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-r from-sky/20 via-accent/10 to-blush/20 blur-2xl"></div>
+  <div class="absolute inset-x-0 top-0 h-24 bg-gradient-to-r from-sky/10 via-accent/10 to-blush/10 blur-2xl"></div>
   <div class="relative border-b border-white/10 bg-white/[0.03] px-5 py-4">
-    <div class="flex items-center gap-3">
+    <div class="flex flex-wrap items-center justify-between gap-3">
       <div class="flex gap-1.5">
         <span class="h-2.5 w-2.5 rounded-full bg-rose-400/80"></span>
         <span class="h-2.5 w-2.5 rounded-full bg-amber-300/80"></span>
         <span class="h-2.5 w-2.5 rounded-full bg-emerald-400/80"></span>
       </div>
-      <div>
+      <div class="flex-1 px-2">
         <p class="text-sm font-semibold text-white">{title}</p>
         <p class="text-xs text-slate-400">{subtitle}</p>
       </div>
+      {statusLabel && <span class="status-chip text-accent">{statusLabel}</span>}
     </div>
   </div>
   <div class:list={['chat-scrollbar space-y-3 overflow-y-auto bg-gradient-to-b from-white/[0.03] to-transparent p-5', compact ? 'max-h-[420px]' : 'max-h-[520px]']}>
@@ -35,10 +37,10 @@ const { title, subtitle, messages, compact = false } = Astro.props as Props;
       <div class:list={['flex', message.from === 'user' ? 'justify-start' : 'justify-end']}>
         <div
           class:list={[
-            'max-w-[86%] rounded-[24px] px-4 py-3 text-sm leading-6 shadow-lg',
+            'max-w-[86%] rounded-[24px] px-4 py-3 text-sm leading-6 shadow-lg shadow-black/20',
             message.from === 'user'
-              ? 'rounded-bl-md border border-white/10 bg-white/10 text-slate-100'
-              : 'rounded-br-md bg-gradient-to-br from-accent/90 to-sky/80 text-slate-950'
+              ? 'rounded-bl-md border border-white/10 bg-white/[0.09] text-slate-100'
+              : 'rounded-br-md bg-gradient-to-br from-accent/85 to-sky/75 text-slate-950'
           ]}
         >
           <p>{message.text}</p>

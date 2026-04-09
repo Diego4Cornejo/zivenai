@@ -13,13 +13,13 @@ const { faqs } = siteData;
         <SectionHeading
           eyebrow="FAQ"
           title="Preguntas comunes antes de implementar ZivenAI"
-          description="Una seccion simple, accesible y facil de actualizar para resolver objeciones frecuentes."
+          description="Una sección simple, clara y actualizable para resolver objeciones frecuentes antes de pedir una demo."
         />
       </div>
 
       <div class="space-y-4">
         {faqs.map((item) => (
-          <details class="panel reveal group rounded-[26px] px-6 py-5" data-reveal>
+          <details class="panel reveal group rounded-[26px] px-6 py-5 hover:border-white/15 hover:bg-white/[0.05]" data-reveal>
             <summary class="flex cursor-pointer list-none items-center justify-between gap-4 text-left">
               <span class="text-base font-semibold text-white">{item.question}</span>
               <span class="rounded-full border border-white/10 bg-white/5 p-2 text-slate-300 group-open:rotate-180">

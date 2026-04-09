@@ -24,6 +24,7 @@ export type DemoMessage = {
 export type DemoItem = {
   title: string;
   label: string;
+  status: string;
   description: string;
   messages: DemoMessage[];
 };
@@ -58,6 +59,12 @@ export type FaqItem = {
   answer: string;
 };
 
+export type TrustItem = {
+  title: string;
+  description: string;
+  icon: string;
+};
+
 export const siteData = {
   // Edita aqui el nombre del producto.
   brandName: 'ZivenAI',
@@ -71,7 +78,7 @@ export const siteData = {
   },
   navItems: [
     { label: 'Inicio', href: '#inicio' },
-    { label: 'Solucion', href: '#solucion' },
+    { label: 'Solución', href: '#solucion' },
     { label: 'Funciones', href: '#funciones' },
     { label: 'Demo', href: '#demo' },
     { label: 'Planes', href: '#planes' },
@@ -79,29 +86,30 @@ export const siteData = {
     { label: 'Contacto', href: '#contacto' }
   ] satisfies NavItem[],
   hero: {
-    badge: 'Automatizacion inteligente para WhatsApp y llamadas',
+    badge: 'WhatsApp, llamadas y atención 24/7',
     // Edita aqui el titular principal.
-    title: 'Automatiza la atencion de tu negocio por WhatsApp y llamadas con IA',
+    title: 'Automatiza la atención de tu negocio por WhatsApp y llamadas, 24/7',
     // Edita aqui el subtitulo principal.
     description:
-      'Responde clientes, captura oportunidades y vende mas, 24/7, con una experiencia moderna y automatizada en chat y voz.',
+      'Responde clientes, captura oportunidades y vende más con una atención automatizada, clara y profesional.',
     primaryCta: 'Solicitar demo',
     secondaryCta: 'Ver planes',
-    trustLabels: ['WhatsApp + voz', 'Atencion automatica', 'Listo para crecer'],
-    channelLabels: ['WhatsApp', 'Llamadas', 'Derivacion humana'],
+    trustLabels: ['Disponible 24/7', 'Reservas y leads', 'Derivación humana'],
+    channelLabels: ['WhatsApp', 'Llamadas opcionales', 'Hecho para Chile y LatAm'],
     voiceCallout: {
-      title: 'Canales activos',
-      description: 'Atiende por mensajeria y tambien por voz desde una sola experiencia automatizada.'
+      title: 'Soporte por voz opcional',
+      description:
+        'Si tu operación lo necesita, ZivenAI también puede automatizar llamadas, calificar casos y derivar a una persona real.'
     },
     heroMessages: [
       {
         from: 'user',
-        text: 'Hola, que horario tienen hoy?',
+        text: 'Hola, ¿qué horario tienen hoy?',
         time: '09:14'
       },
       {
         from: 'assistant',
-        text: 'Hola, somos ZivenAI. Hoy atendemos hasta las 22:00. Te gustaria reservar o consultar precios?',
+        text: 'Hola, hoy atendemos hasta las 22:00. Si quieres, también puedo ayudarte con una reserva o con los precios.',
         time: '09:14'
       },
       {
@@ -111,17 +119,17 @@ export const siteData = {
       },
       {
         from: 'assistant',
-        text: 'Si, tenemos disponibilidad a las 20:30 y 21:00. Te reservo?',
+        text: 'Sí, tenemos disponibilidad a las 20:30 y 21:00. ¿Te reservo alguna opción?',
         time: '09:15'
       },
       {
         from: 'user',
-        text: 'Tambien quiero saber el valor',
+        text: 'También quiero saber el valor',
         time: '09:15'
       },
       {
         from: 'assistant',
-        text: 'Claro. El menu parte desde $14.900. Quieres que te envie las opciones?',
+        text: 'Claro. El menú parte desde $14.900. Si quieres, te envío opciones y dejo tu reserva lista.',
         time: '09:16'
       }
     ] satisfies DemoMessage[]
@@ -129,79 +137,79 @@ export const siteData = {
   useCases: [
     {
       title: 'Restaurantes',
-      description: 'Gestiona reservas, horarios, menus y consultas frecuentes sin saturar al equipo.',
+      description: 'Responde horarios, confirma reservas y comparte menús sin depender del equipo en cada consulta.',
       icon: 'utensils'
     },
     {
       title: 'Hoteles',
-      description: 'Responde disponibilidad, tarifas y preguntas previas a la reserva por chat o llamada.',
+      description: 'Atiende disponibilidad, tarifas y preguntas frecuentes antes de la reserva con una respuesta más ordenada.',
       icon: 'building'
     },
     {
-      title: 'Clinicas',
-      description: 'Automatiza informacion general, confirmaciones y primeras consultas de pacientes en texto y voz.',
+      title: 'Clínicas',
+      description: 'Automatiza información inicial, horarios, derivaciones y primeras consultas de pacientes.',
       icon: 'heart'
     },
     {
-      title: 'Salones / estetica',
-      description: 'Toma reservas, comparte servicios y mantiene una atencion mas ordenada.',
+      title: 'Salones / estética',
+      description: 'Toma reservas, presenta servicios y filtra consultas repetitivas con una atención más profesional.',
       icon: 'sparkles'
     },
     {
       title: 'Servicios locales',
-      description: 'Califica interesados, organiza solicitudes y deriva al equipo correcto por WhatsApp o llamadas.',
+      description: 'Captura datos, entiende la necesidad del cliente y deriva cada lead al área correcta.',
       icon: 'briefcase'
     },
     {
-      title: 'Ecommerce pequeno',
-      description: 'Atiende preguntas sobre stock, entregas y pagos con una experiencia consistente.',
+      title: 'Ecommerce pequeño',
+      description: 'Resuelve dudas sobre stock, entregas y pagos sin perder velocidad ni consistencia en la atención.',
       icon: 'shopping'
     }
   ] satisfies UseCaseItem[],
   features: [
     {
-      title: 'Atencion automatica 24/7',
-      description: 'Tu negocio sigue respondiendo incluso fuera de horario en chat y voz.',
+      title: 'Atención automática 24/7',
+      description: 'Tu negocio sigue respondiendo incluso fuera de horario, sin dejar consultas pendientes.',
       icon: 'clock'
     },
     {
-      title: 'Respuestas instantaneas por WhatsApp',
-      description: 'Reduce tiempos de espera y mejora la experiencia del cliente.',
+      title: 'Respuestas instantáneas por WhatsApp',
+      description: 'Da una primera respuesta clara y rápida cuando el cliente todavía está listo para comprar o reservar.',
       icon: 'chat'
     },
     {
       title: 'Captura de leads',
-      description: 'Ordena datos de contacto y oportunidades desde la primera conversacion.',
+      description: 'Recoge nombre, necesidad y contexto para convertir conversaciones en oportunidades reales.',
       icon: 'leads'
     },
     {
       title: 'Reservas y agendamiento',
-      description: 'Facilita confirmaciones y solicitudes sin friccion.',
+      description: 'Facilita confirmaciones, disponibilidad y solicitudes sin fricción para el cliente.',
       icon: 'calendar'
     },
     {
-      title: 'Derivacion a humano cuando sea necesario',
-      description: 'Escala la conversacion cuando el caso requiere apoyo del equipo.',
+      title: 'Derivación a humano',
+      description: 'Cuando la conversación lo requiere, ZivenAI escala el caso a una persona real.',
       icon: 'handoff'
     },
     {
-      title: 'Respuestas personalizadas segun tu negocio',
-      description: 'Cada flujo se adapta a tu rubro, tono y procesos.',
+      title: 'Personalización según tu negocio',
+      description: 'El asistente responde con tu tono, tus servicios y la información que realmente importa.',
       icon: 'sliders'
     },
     {
-      title: 'Implementacion simple',
-      description: 'Partimos rapido, sin exigir procesos tecnicos complejos.',
+      title: 'Implementación simple',
+      description: 'Partimos con una configuración guiada para que el sistema empiece a ser útil rápido.',
       icon: 'rocket'
     },
     {
-      title: 'Escalable para multiples conversaciones',
-      description: 'Atiende mas consultas sin perder consistencia operacional.',
+      title: 'Escalable para múltiples conversaciones',
+      description: 'Atiende más volumen sin perder consistencia ni saturar al equipo.',
       icon: 'layers'
     },
     {
-      title: 'Voz / llamadas automatizadas',
-      description: 'Agrega flujos de voz para responder, filtrar y derivar llamadas automaticamente.',
+      title: 'Voz / llamadas automatizadas opcionales',
+      description: 'Agrega automatización por voz para responder, filtrar y derivar llamadas cuando tu operación lo necesite.',
       icon: 'phone'
     }
   ] satisfies FeatureItem[],
@@ -209,50 +217,52 @@ export const siteData = {
     {
       title: 'Reserva para restaurante',
       label: 'Demo 01',
-      description: 'Convierte una consulta simple en una reserva confirmada con menos friccion.',
+      status: 'Reserva confirmada',
+      description: 'Una consulta simple termina en una reserva confirmada con menos fricción y mejor experiencia.',
       messages: [
-        { from: 'user', text: 'Hola, tienen mesa hoy para 4?', time: '19:02' },
-        { from: 'assistant', text: 'Si, tenemos a las 20:00 y 21:15. Cual prefieres?', time: '19:02' },
+        { from: 'user', text: 'Hola, ¿tienen mesa hoy para 4 personas?', time: '19:02' },
+        { from: 'assistant', text: 'Sí, tenemos a las 20:00 y a las 21:15. ¿Cuál prefieres?', time: '19:02' },
         { from: 'user', text: 'A las 20:00 por favor', time: '19:03' },
-        { from: 'assistant', text: 'Perfecto. Te dejo reservada una mesa para 4 a las 20:00.', time: '19:03' }
+        { from: 'assistant', text: 'Perfecto. Dejé tu reserva confirmada para 4 personas a las 20:00.', time: '19:03' }
       ]
     },
     {
-      title: 'Atencion por llamada automatizada',
+      title: 'Precios y horarios',
       label: 'Demo 02',
-      description: 'Muestra como una llamada puede responder, calificar y derivar sin depender de una persona disponible.',
+      status: 'Disponible 24/7',
+      description: 'El asistente entrega información clave al instante y evita que una consulta simple se enfríe.',
       messages: [
-        { from: 'user', text: 'Llamada entrante: Hola, necesito saber si atienden hoy', time: '10:26' },
-        { from: 'assistant', text: 'Hola, gracias por llamar. Hoy atendemos hasta las 21:30. Quieres consultar precios o agendar?', time: '10:26' },
-        { from: 'user', text: 'Quiero consultar precios', time: '10:27' },
-        { from: 'assistant', text: 'Perfecto. Te comparto los valores base y, si quieres, te derivo con una persona del equipo.', time: '10:27' }
+        { from: 'user', text: 'Hola, ¿qué horario tienen hoy y cuánto cuesta?', time: '10:26' },
+        { from: 'assistant', text: 'Hoy atendemos hasta las 21:30 y los planes parten desde $199 al mes.', time: '10:26' },
+        { from: 'assistant', text: 'Si quieres, también puedo explicarte qué incluye cada opción.', time: '10:27' }
       ]
     },
     {
-      title: 'Calificacion de lead',
+      title: 'Calificación y derivación',
       label: 'Demo 03',
-      description: 'Filtra necesidades, recoge contexto y deriva oportunidades con mejor informacion.',
+      status: 'Derivado a humano',
+      description: 'ZivenAI entiende el contexto, califica el lead y lo deriva con mejor información para el equipo.',
       messages: [
-        { from: 'user', text: 'Necesito ayuda para automatizar mis reservas', time: '15:40' },
-        { from: 'assistant', text: 'Claro. Tu negocio es restaurante, hotel o servicio local?', time: '15:40' },
-        { from: 'user', text: 'Es una clinica dental', time: '15:41' },
-        { from: 'assistant', text: 'Perfecto. Te conecto con una propuesta adaptada a clinicas.', time: '15:41' }
+        { from: 'user', text: 'Necesito ayuda para automatizar las reservas de mi negocio', time: '15:40' },
+        { from: 'assistant', text: 'Claro. ¿Tu negocio es restaurante, clínica o servicio local?', time: '15:40' },
+        { from: 'user', text: 'Es una clínica dental', time: '15:41' },
+        { from: 'assistant', text: 'Perfecto. Ya dejé tu solicitud clasificada y te derivo con una persona del equipo.', time: '15:41' }
       ]
     }
   ] satisfies DemoItem[],
   pricing: {
-    note: 'Los valores e integraciones pueden ajustarse segun las necesidades de cada negocio.',
+    note: 'Los valores e integraciones pueden ajustarse según las necesidades de cada negocio.',
     // Edita aqui los precios de cada plan.
     plans: [
       {
         name: 'Plan WSP',
         price: '199',
-        description: 'La base ideal para automatizar conversaciones por WhatsApp.',
+        description: 'Ideal para negocios que quieren ordenar y automatizar la atención inicial por WhatsApp.',
         features: [
-          'Automatizacion por WhatsApp',
+          'Automatización por WhatsApp',
           'Respuestas frecuentes',
           'Captura de leads',
-          'Informacion del negocio',
+          'Información del negocio',
           'Soporte base'
         ],
         ctaLabel: 'Elegir WSP',
@@ -261,12 +271,12 @@ export const siteData = {
       {
         name: 'Plan Voice',
         price: '299',
-        description: 'Ideal para negocios que quieren automatizar llamadas entrantes con una experiencia clara y profesional.',
+        description: 'Recomendado para negocios que también necesitan automatizar llamadas con una experiencia clara y profesional.',
         features: [
           'Todo lo del plan WSP',
           'Flujos de voz',
-          'Atencion automatizada por llamadas',
-          'Derivacion inteligente'
+          'Atención automatizada por llamadas',
+          'Derivación inteligente'
         ],
         highlighted: true,
         ctaLabel: 'Elegir Voice',
@@ -275,13 +285,13 @@ export const siteData = {
       {
         name: 'Plan Full',
         price: '499',
-        description: 'La experiencia mas completa para negocios que quieren automatizar WhatsApp y llamadas con mas personalizacion.',
+        description: 'La opción más completa para automatizar WhatsApp, voz y procesos más personalizados.',
         features: [
           'WhatsApp + Voz',
           'Flujos personalizados',
           'Prioridad de soporte',
           'Ajustes avanzados',
-          'Experiencia mas completa para tu negocio'
+          'Experiencia más completa para tu negocio'
         ],
         ctaLabel: 'Elegir Full',
         ctaHref: '#contacto'
@@ -291,66 +301,88 @@ export const siteData = {
   benefits: [
     {
       title: 'Menos tiempo respondiendo lo mismo',
-      description: 'Automatiza preguntas repetitivas y deja mas espacio para tareas de mayor valor.'
+      description: 'Automatiza preguntas repetitivas y libera tiempo para tareas donde sí hace falta una persona.'
     },
     {
-      title: 'Mas oportunidades captadas',
-      description: 'Cada consulta recibe respuesta rapida y puede convertirse en una venta o reserva.'
+      title: 'Más oportunidades captadas',
+      description: 'Cada consulta puede transformarse en un lead, una reserva o una conversación comercial mejor encaminada.'
     },
     {
       title: 'Mejor experiencia para tus clientes',
-      description: 'Una conversacion clara, ordenada y disponible por chat o voz mejora la percepcion de marca.'
+      description: 'Una respuesta clara, rápida y consistente mejora la percepción de tu negocio desde el primer contacto.'
     },
     {
-      title: 'Atencion incluso fuera de horario',
-      description: 'Tu negocio sigue operativo cuando el equipo no esta conectado, tanto en WhatsApp como en llamadas.'
+      title: 'Atención incluso fuera de horario',
+      description: 'Tu operación sigue respondiendo cuando el equipo no está conectado o está ocupado en otras tareas.'
     }
   ] satisfies BenefitItem[],
   stats: [
     { label: 'Disponible', value: '24/7' },
     { label: 'Respuesta', value: 'En segundos' },
-    { label: 'Canales', value: 'WhatsApp + Voz' },
-    { label: 'Enfoque', value: 'Negocios reales' }
+    { label: 'Enfoque', value: 'Negocios reales' },
+    { label: 'Canales', value: 'WhatsApp + voz' }
   ] satisfies StatItem[],
   steps: [
     {
-      title: 'Cuentanos sobre tu negocio',
-      description: 'Entendemos tus procesos, preguntas frecuentes y objetivos comerciales.'
+      title: 'Cuéntanos sobre tu negocio',
+      description: 'Entendemos tus preguntas frecuentes, tu forma de atender y el tipo de cliente que recibes.'
     },
     {
       title: 'Configuramos tu asistente',
-      description: 'Adaptamos conversaciones, tono, flujos y criterios de derivacion.'
+      description: 'Ajustamos respuestas, tono, reservas, captación de leads y criterios de derivación.'
     },
     {
-      title: 'Empieza a responder clientes automaticamente',
-      description: 'Activas una experiencia mas ordenada para atender, vender y captar leads.'
+      title: 'Empieza a responder clientes automáticamente',
+      description: 'Tu negocio comienza a atender con más orden, rapidez y consistencia desde el primer contacto.'
     }
   ] satisfies StepItem[],
+  trust: [
+    {
+      title: 'Personalización según tu negocio',
+      description: 'No se trata de una plantilla genérica: ZivenAI responde con información adaptada a tu operación.',
+      icon: 'sliders'
+    },
+    {
+      title: 'Implementación acompañada',
+      description: 'La configuración se hace contigo para que el resultado sea útil y entendible desde el inicio.',
+      icon: 'rocket'
+    },
+    {
+      title: 'Derivación a persona real',
+      description: 'Cuando hace falta intervención humana, la conversación puede continuar con tu equipo.',
+      icon: 'handoff'
+    },
+    {
+      title: 'Pensado para Chile y LatAm',
+      description: 'La propuesta está orientada a negocios reales que venden, reservan y responden por mensajería todos los días.',
+      icon: 'globe'
+    }
+  ] satisfies TrustItem[],
   faqs: [
     {
-      question: 'Necesito conocimientos tecnicos?',
-      answer: 'No. ZivenAI esta pensado para implementarse de forma guiada y simple.'
+      question: '¿Necesito conocimientos técnicos?',
+      answer: 'No. ZivenAI está pensado para implementarse con acompañamiento y sin exigir procesos técnicos complejos.'
     },
     {
-      question: 'Sirve para cualquier negocio?',
-      answer: 'Funciona especialmente bien en negocios con alto volumen de consultas repetitivas, reservas o seguimiento comercial.'
+      question: '¿Sirve para cualquier negocio?',
+      answer: 'Funciona especialmente bien en negocios con consultas repetitivas, reservas, agendamiento o captación comercial.'
     },
     {
-      question: 'Se puede personalizar?',
-      answer: 'Si. El asistente puede ajustarse a tu tono, informacion, procesos y tipo de clientes.'
+      question: '¿Se puede personalizar?',
+      answer: 'Sí. El asistente se ajusta a tu rubro, tono, información clave y forma de atender clientes.'
     },
     {
-      question: 'Puede derivar a una persona real?',
-      answer: 'Si. Cuando corresponde, la conversacion puede escalarse a un miembro del equipo.'
+      question: '¿Puede derivar a una persona real?',
+      answer: 'Sí. Cuando la conversación necesita intervención humana, ZivenAI puede escalar el caso a tu equipo.'
     },
     {
-      question: 'Tambien sirve para llamadas?',
-      answer: 'Si. ZivenAI puede incluir automatizacion por voz para responder, filtrar y derivar llamadas segun tu operacion.'
+      question: '¿También sirve para llamadas?',
+      answer: 'Sí. Según el plan, puedes sumar flujos de voz para responder, filtrar y derivar llamadas automáticamente.'
     },
     {
-      question: 'Como se implementa?',
-      answer: 'Partimos con una breve definicion del flujo, configuramos el asistente y luego hacemos ajustes segun tu operacion.'
+      question: '¿Cómo se implementa?',
+      answer: 'Primero entendemos tu negocio, luego configuramos el asistente y finalmente ajustamos el flujo según tu operación real.'
     }
   ] satisfies FaqItem[],
-  footerText: 'Automatizacion con inteligencia artificial para negocios en WhatsApp y voz.'
+  footerText: 'Automatización con inteligencia artificial para negocios en WhatsApp y voz.'
 } as const;

@@ -15,9 +15,10 @@
   body {
     @apply min-h-screen bg-night font-sans text-slate-200 selection:bg-accent/30 selection:text-white;
     background-image:
-      radial-gradient(circle at top left, rgba(98, 180, 255, 0.18), transparent 26%),
-      radial-gradient(circle at top right, rgba(87, 230, 177, 0.14), transparent 24%),
-      radial-gradient(circle at bottom center, rgba(243, 160, 255, 0.1), transparent 22%);
+      radial-gradient(circle at top left, rgba(98, 180, 255, 0.12), transparent 28%),
+      radial-gradient(circle at top right, rgba(87, 230, 177, 0.08), transparent 24%),
+      radial-gradient(circle at bottom center, rgba(243, 160, 255, 0.06), transparent 20%),
+      linear-gradient(180deg, rgba(15, 23, 39, 0.94), rgba(7, 11, 20, 1));
   }
 
   h1,
@@ -44,15 +45,20 @@
   }
 
   .section {
-    @apply relative py-20 sm:py-24;
+    @apply relative py-20 sm:py-24 lg:py-28;
   }
 
   .eyebrow {
-    @apply inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-slate-200/90 backdrop-blur;
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 px-4 py-2 font-semibold uppercase text-slate-200 backdrop-blur;
+    background-color: rgba(255, 255, 255, 0.05);
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: rgba(226, 232, 240, 0.9);
   }
 
   .section-title {
-    @apply max-w-3xl text-3xl font-semibold leading-tight sm:text-4xl lg:text-5xl;
+    @apply max-w-3xl text-3xl font-semibold sm:text-4xl lg:text-5xl;
+    line-height: 1.08;
   }
 
   .section-copy {
@@ -60,11 +66,13 @@
   }
 
   .panel {
-    @apply rounded-[28px] border border-white/10 bg-white/[0.04] shadow-soft backdrop-blur-xl;
+    @apply rounded-[28px] border border-white/10 shadow-soft backdrop-blur-xl;
+    background-color: rgba(255, 255, 255, 0.035);
   }
 
   .panel-strong {
-    @apply rounded-[32px] border border-white/10 bg-slate-950/70 shadow-glow backdrop-blur-xl;
+    @apply rounded-[32px] border border-white/10 shadow-glow backdrop-blur-xl;
+    background-color: rgba(2, 6, 23, 0.78);
   }
 
   .button-primary {
@@ -72,7 +80,12 @@
   }
 
   .button-secondary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 bg-white/5 px-6 py-3 text-sm font-semibold text-white hover:-translate-y-0.5 hover:border-white/30 hover:bg-white/10;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-white/15 px-6 py-3 text-sm font-semibold text-white hover:-translate-y-0.5 hover:border-white/30;
+    background-color: rgba(255, 255, 255, 0.045);
+  }
+
+  .button-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.08);
   }
 
   .fine-grid {
@@ -82,7 +95,18 @@
   }
 
   .glow-orb {
-    @apply pointer-events-none absolute rounded-full blur-3xl;
+    @apply pointer-events-none absolute rounded-full blur-3xl opacity-70;
+  }
+
+  .soft-divider {
+    @apply absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/10 to-transparent;
+  }
+
+  .status-chip {
+    @apply inline-flex items-center gap-2 rounded-full border border-white/10 px-3 py-1.5 font-semibold uppercase text-slate-200;
+    background-color: rgba(255, 255, 255, 0.05);
+    font-size: 11px;
+    letter-spacing: 0.18em;
   }
 
   .reveal {

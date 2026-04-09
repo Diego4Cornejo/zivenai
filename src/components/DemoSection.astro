@@ -11,26 +11,32 @@ const { demos } = siteData;
     <div class="space-y-12">
       <div class="reveal" data-reveal>
         <SectionHeading
-          eyebrow="Demo"
-          title="Simulaciones visuales para entender como se veria ZivenAI en tu operacion"
-          description="Sin capturas externas ni dependencias pesadas: todo esta construido en HTML y CSS para mantener el sitio liviano y coherente."
+          eyebrow="Simulaciones"
+          title="Conversaciones que muestran cómo ZivenAI responde, captura y deriva"
+          description="Las demos están construidas como interfaces conversacionales simples y claras para explicar el producto sin recurrir a capturas externas."
           align="center"
         />
       </div>
 
       <div class="grid gap-6 xl:grid-cols-3">
         {demos.map((demo, index) => (
-          <article class="panel reveal rounded-[32px] p-5" data-reveal style={`transition-delay: ${index * 100}ms;`}>
+          <article class="panel reveal rounded-[32px] p-5 hover:-translate-y-1 hover:border-white/15" data-reveal style={`transition-delay: ${index * 100}ms;`}>
             <div class="mb-4 flex items-center justify-between">
               <div>
                 <span class="text-xs font-semibold uppercase tracking-[0.22em] text-accent">{demo.label}</span>
                 <h3 class="mt-2 text-xl font-semibold">{demo.title}</h3>
               </div>
-              <span class="rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs text-slate-300">
-                En vivo
+              <span class="status-chip">
+                {demo.status}
               </span>
             </div>
-            <ChatMockup title={demo.title} subtitle="Simulacion conversacional" messages={demo.messages} compact />
+            <ChatMockup
+              title={demo.title}
+              subtitle="Simulación conversacional"
+              messages={demo.messages}
+              compact
+              statusLabel={demo.status}
+            />
             <p class="mt-4 text-sm leading-7 text-slate-300">{demo.description}</p>
           </article>
         ))}
